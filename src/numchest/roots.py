@@ -1,7 +1,29 @@
 import numpy as np
 import math
 
+
 def findZeros(values, axis=None, start=0, end=-1):
+  """Find zeros in a one dimensional numpy array
+
+  The algorithm checks for zero crossings and then performs a linear 
+  interpolation to determine an approximate value for the zero crossing.
+
+  Parameters
+  ----------
+  values: numpy array
+    The array containeng the function values
+  axis: numpy array, optional
+    An array containing the x-axis values. These will be used to determine
+    the zero crossings. Requires axis.size = values.size.
+    If not supplied, the indices of the values array will be used to calculate
+    the zero crossings
+  start: int, optional
+    A starting index to look for zero crossings. Negative values indicate offsets
+    from the end of the array. (default = 0)
+  end: int, optional
+    An end index to look for zero crossings. Negative values indicate offsets
+    from the end of the array. (default = -1)
+  """
   def getX(index):
     if (axis is None):
       return index
